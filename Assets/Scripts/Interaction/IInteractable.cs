@@ -37,8 +37,10 @@ namespace Causebound.Interaction
     {
         [SerializeField] private StatefulObject state;
         [SerializeField] private string interactionState = "Active";
+        [SerializeField] private StatefulObject requiredAccess;
+        [SerializeField] private string requiredAccessState;
 
-        public bool CanInteract => state != null && isActiveAndEnabled;
+        public bool CanInteract => state != null && isActiveAndEnabled && AccessGranted;
 
         private void Awake()
         {
@@ -51,11 +53,19 @@ namespace Causebound.Interaction
             interactionState = nextState;
         }
 
+        public void ConfigureAccess(StatefulObject accessState, string requiredState)
+        {
+            requiredAccess = accessState;
+            requiredAccessState = requiredState;
+        }
+
+        private bool AccessGranted => requiredAccess == null || string.Equals(requiredAccess.CurrentState, requiredAccessState, System.StringComparison.Ordinal);
+
         public InteractionResult Interact(in InteractionContext context)
         {
             if (!CanInteract)
             {
-                return new InteractionResult(false, "Object is not interactable.");
+                return new InteractionResult(false, AccessGranted ? "Object is not interactable." : "Access is not available yet.");
             }
 
             return new InteractionResult(state.TrySetState(interactionState));

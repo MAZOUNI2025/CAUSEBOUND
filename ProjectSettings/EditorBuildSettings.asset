@@ -15,6 +15,10 @@ EditorBuildSettings:
     guid: d297c2d1868ab65f655c06b7cb976882
   - serializedVersion: 2
     enabled: 1
+    path: Assets/Scenes/Level01.unity
+    guid: 3d6e9c13cb318d3bb756486095815f32
+  - serializedVersion: 2
+    enabled: 1
     path: Assets/Scenes/Gameplay.unity
     guid: 824eedf2a132310ce8591b79db3a4234
   - serializedVersion: 2

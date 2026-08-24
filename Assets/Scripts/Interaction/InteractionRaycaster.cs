@@ -44,8 +44,15 @@ namespace Causebound.Interaction
                 return;
             }
 
-            var interactable = hit.collider.GetComponent<MonoBehaviour>() as IInteractable;
-            interactable?.Interact(new InteractionContext(screenPosition, this));
+            var behaviours = hit.collider.GetComponents<MonoBehaviour>();
+            foreach (var behaviour in behaviours)
+            {
+                if (behaviour is IInteractable interactable)
+                {
+                    interactable.Interact(new InteractionContext(screenPosition, this));
+                    break;
+                }
+            }
         }
     }
 }
