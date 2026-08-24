@@ -36,6 +36,7 @@ Thumbs.db
 
 # Unity crash reports and local logs
 sysinfo.txt
+*.log
 *.stacktrace
 
 # Build artifacts and local exports
