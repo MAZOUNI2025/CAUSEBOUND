@@ -38,6 +38,7 @@ MonoBehaviour:
   m_Name:
   m_EditorClassIdentifier:
   levelSceneName: Level01
+  totalLevels: 5
   menuCanvas: {fileID: 300003}
   menuCamera: {fileID: 220002}
 --- !u!1 &220000

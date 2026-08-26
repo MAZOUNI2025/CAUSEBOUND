@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 1111}
   - component: {fileID: 1112}
   m_Layer: 0
-  m_Name: Level01Root
+  m_Name: Level02Root
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -121,7 +121,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d72ac82bfe7f5ffacde2c65ea9e047f, type: 3}
   m_Name:
   m_EditorClassIdentifier:
-  levelData: {fileID: 11400000, guid: c0dbc9d10cc5bbebb8785129b7107c96, type: 2}
+  levelData: {fileID: 11400000, guid: 54a6ab640960b81f1436451f82d77dd6, type: 2}
   completion: {fileID: 7102}
   resetController: {fileID: 1103}
   showControls: 1
@@ -154,7 +154,7 @@ MonoBehaviour:
   m_Name:
   m_EditorClassIdentifier:
   progression: {fileID: 1110}
-  levelData: {fileID: 11400000, guid: c0dbc9d10cc5bbebb8785129b7107c96, type: 2}
+  levelData: {fileID: 11400000, guid: 54a6ab640960b81f1436451f82d77dd6, type: 2}
   completion: {fileID: 7102}
   canvas: {fileID: 0}
 --- !u!114 &1112

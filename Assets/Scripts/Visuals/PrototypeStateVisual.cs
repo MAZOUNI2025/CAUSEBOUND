@@ -22,6 +22,7 @@ namespace Causebound.Visuals
 
         private Renderer visualRenderer;
         private Transform visualTransform;
+        private string appliedState;
 
         private void Awake()
         {
@@ -47,6 +48,14 @@ namespace Causebound.Visuals
             if (state != null)
             {
                 state.StateChanged -= HandleStateChanged;
+            }
+        }
+
+        private void Update()
+        {
+            if (state != null && !string.Equals(appliedState, state.CurrentState, StringComparison.Ordinal))
+            {
+                Apply(state.CurrentState);
             }
         }
 
@@ -78,11 +87,17 @@ namespace Causebound.Visuals
             }
 
             var style = FindStyle(currentState);
-            visualRenderer.material.color = style == null ? fallbackColor : style.color;
+            CauseboundMaterialUtility.ApplyColor(visualRenderer, style == null ? fallbackColor : style.color);
             if (style != null)
             {
                 visualTransform.localScale = Vector3.Scale(visualScale, style.scale);
             }
+            else
+            {
+                visualTransform.localScale = visualScale;
+            }
+
+            appliedState = currentState;
         }
 
         private PrototypeStateStyle FindStyle(string currentState)

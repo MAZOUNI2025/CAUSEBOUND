@@ -15,10 +15,7 @@ namespace Causebound.Visuals
             visual.transform.SetParent(transform, false);
             visual.transform.localScale = scale;
             var renderer = visual.GetComponent<Renderer>();
-            if (renderer != null)
-            {
-                renderer.material.color = color;
-            }
+            CauseboundMaterialUtility.ApplyColor(renderer, color);
 
             var collider = visual.GetComponent<Collider>();
             if (collider != null)
